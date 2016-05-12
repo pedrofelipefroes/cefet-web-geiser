@@ -1,0 +1,27 @@
+{
+  "name": "cefet-web-geiser",
+  "version": "0.1.0",
+  "description": "Um cadastrador de jogos",
+  "main": "server/app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrofelipefroes/cefet-web-geiser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedrofelipefroes/cefet-web-geiser/issues"
+  },
+  "homepage": "https://github.com/pedrofelipefroes/cefet-web-geiser#readme",
+  "dependencies": {
+  	"express": "latest",
+    "underscore": "latest",
+    "hbs": "latest"
+  }
+}
