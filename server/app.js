@@ -21,7 +21,7 @@ app.set('view engine', 'hbs');
 
 app.set('views', 'server/views');
 app.get('/', function (req, res) {
-    res.render('index', {players: db.jogadores.players}); // esse render precisa exportar os jogadores
+    res.render('index', { player: db.jogadores.players }); // esse render precisa exportar os jogadores
 });
 
 // EXERCÍCIO 3
