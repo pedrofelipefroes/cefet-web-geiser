@@ -29,20 +29,21 @@
             <!-- Card de detalhes do jogador (esquerda) -->
             <div class="col-md-3">
                 <div class="media-list">
-                    
-                    {{#each player}}
                     <div class="media player-card-stacked">
                         <div class="media-middle" href="#">
-                            <img src="{{avatarmedium}}" class="avatar">
+                            <img src="{{player.avatarmedium}}" class="avatar">
                         </div>
                         <div class="media-body">
-                            <h3 class="media-heading"><a href="/jogador/{{steamid}}/">{{personaname}}</a></h3>
+                            <h3 class="media-heading">
+                                <a href="/jogador/{{player.steamid}}/">{{player.personaname}}</a>
+                            </h3>
                             <dl class="dl-horizontal">
-                                <dt>Nome real:</dt><dd>{{realname}}</dd>
-                                <dt>País:</dt><dd>{{loccountrycode}}</dd>
-                                <dt>Perfil no steam:</dt><dd><a href="{{profileurl}}">@{{personaname}}</a></dd>
-                                <dt>Quantidade jogos:</dt><dd>99</dd>
-                                <dt>Não jogados:</dt><dd>24</dd>
+                                <dt>Nome real:</dt><dd>{{player.realname}}</dd>
+                                <dt>País:</dt><dd>{{player.loccountrycode}}</dd>
+                                <dt>Perfil no steam:</dt>
+                                <dd><a href="{{player.profileurl}}">@{{player.personaname}}</a></dd>
+                                <dt>Quantidade jogos:</dt><dd>{{games.game_count}}</dd>
+                                <dt>Não jogados:</dt><dd>{{games.unplayed}}</dd>
                             </dl>
                         </div>
                     </div>
@@ -57,13 +58,13 @@
                 <div class="row-fluid">
                     <div class="game-detailed-card media">
                         <div class="media-left">
-                            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/200510/eaa298d2b0d908b2c4f5370d2c8c59a8eff887c6.jpg" class="game-logo">
+                            <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{favorite.appid}}/{{favorite.img_logo_url}}.jpg" class="game-logo">
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">XCOM: Enemy Unknown</h4>
+                            <h4 class="media-heading">{{favorite.name}}</h4>
                             <dl class="dl-horizontal">
-                                <dt>Tempo de jogo:</dt><dd>34h</dd>
-                                <dt>Estatísticas completas:</dt><dd>http://steamcommunity.com/profiles/76561198009353585/stats/200510</dd>
+                                <dt>Tempo de jogo:</dt><dd>{{favorite.playtime_forever}}</dd>
+                                <dt>Estatísticas completas:</dt><dd>http://steamcommunity.com/profiles/{{player.steamid}}/stats/{{favorite.appid}}</dd>
                             </dl>
                         </div>
                     </div>
@@ -81,23 +82,26 @@
                     <ul class="col-md-12 games-card-list media-list">
                     
                         <!-- Primeiro card de jogo -->
+                        {{#each games.games}}
                         <li class="media game-card">
                             <div class="media-left media-middle">
-                                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/105600/e3f375e78ada9d2ec7ffa521fe1b0052d1d2bbb5.jpg">
+                                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_logo_url}}.jpg">
                             </div>
                             <div class="media-body media-middle">
-                                <h4>Terraria</h4>
+                                <h4>{{name}}</h4>
                             </div>
                             <div class="media-right media-middle">
-                                <span class="badge">40h</span>
+                                <span class="badge">{{playtime_forever}}</span>
                             </div>
                         </li>
+                        {{/each}}
                         
                         <!-- Próximo jogo aqui -->
                     </ul>
                 </div>
             </div>
         </div>
+        
     </div>
 </body>
 </html>
